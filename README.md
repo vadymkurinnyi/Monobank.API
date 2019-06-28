@@ -2,8 +2,9 @@
 .NET Client for Monobank API
 
 Using example:
-
+```csharp
 var xToken = "OHkXlpgO8bHp1IjYKIKCRAEFbYZwbnKz2Qu3ispKhWrc";
+
 var client = new MonoClient(xToken);
 
 var currencys = await client.GetCurrency();
@@ -19,4 +20,4 @@ client.OnStatement += (s,e)=> { Console.WriteLine($"Account {e.Account}: {e.Stat
 
 client.StartReceiving(uahAcc, from);
 client.StartReceiving(usdAccount, from);
-
+```
