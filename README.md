@@ -13,7 +13,7 @@ var userInfo = await client.GetClientInfo();
 var uahAccount ="8p74Sco2TTs1DmduFKnsrd";
 var usdAccount ="1HszeB7PMfisUBEYm9EMqx";
 var from = 1559347200;//Unix time
-var statements = client.GetStatements(uahAccount, 1559347200);
+var statements = await client.GetStatements(uahAccount, 1559347200);
 
 client.OnError += (s,e)=> { Console.WriteLine("ERROR: " + e.Description); };
 client.OnStatement += (s,e)=> { Console.WriteLine($"Account {e.Account}: {e.Statement.Description}: {e.Statement.Amount/100.0}"); };
