@@ -13,12 +13,14 @@ using System.Threading.Tasks;
 
 namespace MonoBank.Api
 {
+    /// <summary>
+    /// A client to use the Monobank API
+    /// </summary>
     public class MonoClient : IMonoClient
     {
         private const string BASE_URL = "https://api.monobank.ua";
         private readonly string _token;
         private readonly HttpClient _httpClient;
-        private readonly AuthenticationHeaderValue _authenticationHeaderValue;
         SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
         public TimeSpan Timeout { get; set; } = new TimeSpan(0, 0, 60);
         /// <summary>
@@ -27,7 +29,12 @@ namespace MonoBank.Api
         public bool IsReceiving { get; set; }
 
         private CancellationTokenSource _receivingCancellationTokenSource;
-
+        /// <summary>
+        /// Create a new <see cref="MonoClient"/> instance.
+        /// </summary>
+        /// <param name="token">API X-Token</param>
+        /// <param name="httpClient">A custom <see cref="HttpClient"/></param>
+        /// <exception cref="ArgumentException">Thrown if <paramref name="token"/> format is invalid</exception>
         public MonoClient(string token, HttpClient httpClient = null)
         {
             _token = token ?? throw new ArgumentNullException(nameof(token));

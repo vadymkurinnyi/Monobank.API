@@ -8,6 +8,11 @@
     <RepositoryUrl>https://github.com/vadymkurinnyi/Monobank.API</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>MonoBank API</PackageTags>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>1.0.1</Version>
+    <Description>Monobank API wrapper and worker</Description>
+    <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
